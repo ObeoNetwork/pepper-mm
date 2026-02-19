@@ -1,0 +1,38 @@
+= User documentation
+Pepper Meta Model v{pepper-mm-version} - {git-commit-id-abbrev}
+
+This repository contains the metamodel of https://github.com/ObeoNetwork/pepper[Pepper].
+
+Eclipse Platform Version of the generator : 2025.12 - 4.38
+
+== Concepts
+
+The core concept is the `Project`.
+It contains:
+
+* many attributes to describe the `Project` such as planning, cost or stakeholder information.
+* a list of `Workpackages`
+* a list of `Risks`
+A `Risk` is associated to one or many `Workpackages`
+* a list of `Objectives`
+
+A `Workpackage` contains
+
+* a list of `WorkpackageArtefact`
+* a list of `Tasks`.
+`Tasks` is a fine-grained concept to describe the `Workpackage`
+
+At root level, you can create `Organizations` that own the `Projects` and `ResourceFolders` which contain `Persons`, `Teams`, `InternalStakeholders` and `ExternalStakeholders`.
+
+== Repository Structure
+
+Pepper-mm is organized in multiples modules :
+
+* `pepper-parent`
+Parent POM defining dependency versions.
+
+* `pepper-mm`
+Contains the EMF meta-model and generated model code.
+
+* `pepper-edit`
+Contains the EMF Edit layer (ItemProviders, labels, property descriptors).
