@@ -1,19 +1,21 @@
-/**
- * Copyright (c) 2024, 2026 CEA LIST and Others.
+/*******************************************************************************
+ * Copyright (c) 2024, 2026 CEA LIST, and Others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
  * https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
- * 
+ *
  * Contributors:
  *     Obeo - initial API and implementation
- */
+ ******************************************************************************/
 package pepper.peppermm.provider;
 
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -36,6 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import pepper.peppermm.AbstractTask;
 import pepper.peppermm.PepperFactory;
 import pepper.peppermm.PepperPackage;
+import pepper.peppermm.Task;
 
 /**
  * This is the item provider adapter for a {@link pepper.peppermm.AbstractTask} object. <!-- begin-user-doc --> <!--
@@ -261,14 +264,33 @@ public class AbstractTaskItemProvider extends ItemProviderAdapter
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
      * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.ABSTRACT_TASK__SUB_TASKS, PepperFactory.eINSTANCE.createTask()));
+        Task task = PepperFactory.eINSTANCE.createTask();
+        task.setName(getString("_UI_New") + " " + getString("_UI_Task_type"));
+        if (object instanceof AbstractTask abstractTask) {
+            Optional<Task> optionalTask = abstractTask.getSubTasks().stream()
+                    .reduce((first, second) -> second)
+                    .filter(filteredTask -> filteredTask.getEndTime() != null && filteredTask.getStartTime() != null);
+
+            if (optionalTask.isPresent()) {
+                Task lastTask = optionalTask.get();
+                task.setStartTime(lastTask.getEndTime());
+                task.setEndTime(Instant.ofEpochSecond(2 * lastTask.getEndTime().getEpochSecond() - lastTask.getStartTime().getEpochSecond()));
+            } else {
+                if (abstractTask.getEndTime() != null && abstractTask.getStartTime() != null) {
+                    task.setStartTime(abstractTask.getStartTime());
+                    task.setEndTime(abstractTask.getEndTime());
+                }
+            }
+
+        }
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.ABSTRACT_TASK__SUB_TASKS, task));
     }
 
     /**
