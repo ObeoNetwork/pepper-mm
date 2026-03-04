@@ -12,8 +12,11 @@
  ******************************************************************************/
 package pepper.peppermm.provider;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -36,6 +39,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import pepper.peppermm.PepperFactory;
 import pepper.peppermm.PepperPackage;
 import pepper.peppermm.Project;
+import pepper.peppermm.Workpackage;
 
 /**
  * This is the item provider adapter for a {@link pepper.peppermm.Project} object. <!-- begin-user-doc --> <!--
@@ -520,20 +524,54 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
      * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.PROJECT__OWNED_WORKPACKAGES, PepperFactory.eINSTANCE.createWorkpackage()));
+        Workpackage workpackage = PepperFactory.eINSTANCE.createWorkpackage();
+        workpackage.setName(getString("_UI_New") + " " + getString("_UI_Workpackage_type"));
+        if (object instanceof Project project) {
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.PROJECT__OWNED_OBJECTIVES, PepperFactory.eINSTANCE.createObjective()));
+            Optional<Workpackage> optionalWorkpackage = project.getOwnedWorkpackages().stream()
+                    .reduce((first, second) -> second)
+                    .filter(filteredWorkpackage -> filteredWorkpackage.getEndDate() != null && filteredWorkpackage.getStartDate() != null);
+            if (optionalWorkpackage.isPresent()) {
+                Workpackage lastWorkpackage = optionalWorkpackage.get();
+                workpackage.setStartDate(lastWorkpackage.getEndDate().plusDays(1));
+                long difference = lastWorkpackage.getStartDate().until(lastWorkpackage.getEndDate(), ChronoUnit.DAYS);
+                workpackage.setEndDate(lastWorkpackage.getEndDate().plusDays(difference + 1));
+            } else {
+                LocalDate endDate = null;
+                if (project.getEffectiveEndDate() != null) {
+                    endDate = project.getEffectiveEndDate();
+                }
+                else if (project.getContractualEndDate() != null) {
+                    endDate = project.getContractualEndDate();
+                }
+                LocalDate startDate = null;
+                if (project.getEffectiveStartDate() != null) {
+                    startDate = project.getEffectiveStartDate();
+                }
+                else if (project.getContractualStartDate() != null) {
+                    startDate = project.getContractualStartDate();
+                }
+                if (startDate != null && endDate != null) {
+                    workpackage.setStartDate(startDate);
+                    workpackage.setEndDate(endDate);
+                }
+            }
+        }
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.PROJECT__OWNED_TAG_FOLDERS, PepperFactory.eINSTANCE.createTagFolder()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.PROJECT__OWNED_WORKPACKAGES, workpackage));
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.PROJECT__OWNED_RISKS, PepperFactory.eINSTANCE.createRisk()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.PROJECT__OWNED_OBJECTIVES, PepperFactory.eINSTANCE.createObjective()));
+
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.PROJECT__OWNED_TAG_FOLDERS, PepperFactory.eINSTANCE.createTagFolder()));
+
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.PROJECT__OWNED_RISKS, PepperFactory.eINSTANCE.createRisk()));
     }
 
     /**

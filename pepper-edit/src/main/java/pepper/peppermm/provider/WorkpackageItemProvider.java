@@ -12,8 +12,10 @@
  ******************************************************************************/
 package pepper.peppermm.provider;
 
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -35,6 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import pepper.peppermm.PepperFactory;
 import pepper.peppermm.PepperPackage;
+import pepper.peppermm.Task;
 import pepper.peppermm.Workpackage;
 
 /**
@@ -261,18 +264,42 @@ public class WorkpackageItemProvider extends ItemProviderAdapter
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
      * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.WORKPACKAGE__OUTPUTS, PepperFactory.eINSTANCE.createWorkpackageArtefact()));
+        Task task = PepperFactory.eINSTANCE.createTask();
+        task.setName(getString("_UI_New") + " " + getString("_UI_Task_type"));
+        if (object instanceof Workpackage workpackage) {
+            Optional<Task> optionalTask = workpackage.getOwnedTasks().stream()
+                    .reduce((first, second) -> second)
+                    .filter(filteredTask -> filteredTask.getEndTime() != null && filteredTask.getStartTime() != null);
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.WORKPACKAGE__OWNED_TASKS, PepperFactory.eINSTANCE.createTask()));
+            if (optionalTask.isPresent()) {
+                Task lastTask = optionalTask.get();
+                task.setStartTime(lastTask.getEndTime());
+                task.setEndTime(Instant.ofEpochSecond(2 * lastTask.getEndTime().getEpochSecond() - lastTask.getStartTime().getEpochSecond()));
+            } else {
+                String localDateToInstantString = "T00:00:00.00Z";
+                if (workpackage.getEndDate() != null && workpackage.getStartDate() != null) {
+                    String endTime = workpackage.getEndDate().toString() + localDateToInstantString;
+                    String startTime = workpackage.getStartDate().toString() + localDateToInstantString;
+                    Instant endInstant = Instant.parse(endTime);
+                    Instant startInstant = Instant.parse(startTime);
+                    task.setStartTime(startInstant);
+                    task.setEndTime(endInstant);
+                }
+            }
+        }
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.WORKPACKAGE__OWNED_OBJECTIVES, PepperFactory.eINSTANCE.createObjective()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.WORKPACKAGE__OWNED_TASKS, task));
+
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.WORKPACKAGE__OUTPUTS, PepperFactory.eINSTANCE.createWorkpackageArtefact()));
+
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.WORKPACKAGE__OWNED_OBJECTIVES, PepperFactory.eINSTANCE.createObjective()));
     }
 
     /**

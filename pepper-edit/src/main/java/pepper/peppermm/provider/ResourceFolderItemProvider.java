@@ -170,22 +170,22 @@ public class ResourceFolderItemProvider extends ItemProviderAdapter
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
      * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createTeam()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createPerson()));
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createInternalStakeholder()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createTeam()));
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createExternalStakeholder()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createInternalStakeholder()));
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createPerson()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__OWNED_RESOURCES, PepperFactory.eINSTANCE.createExternalStakeholder()));
 
-        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__SUB_FOLDERS, PepperFactory.eINSTANCE.createResourceFolder()));
+        newChildDescriptors.add(this.createChildParameter(PepperPackage.Literals.RESOURCE_FOLDER__SUB_FOLDERS, PepperFactory.eINSTANCE.createResourceFolder()));
     }
 
     /**
