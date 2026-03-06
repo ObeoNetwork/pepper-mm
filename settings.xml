@@ -36,4 +36,11 @@
       </repositories>
     </profile>
   </profiles>
+  <servers>
+    <server>
+      <id>github-pepper-mm</id>
+      <username>${env.GITHUB_ACTOR}</username>
+      <password>${env.GITHUB_TOKEN}</password>
+    </server>
+  </servers>
 </settings>

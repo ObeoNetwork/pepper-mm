@@ -33,9 +33,7 @@
 	</distributionManagement>
 
 	<!-- reminder
-	
 	 Update version: mvn versions:set -DnewVersion=xxx.y.z
-	 
 	  -->
 	<modules>
 		<module>pepper-mm</module>

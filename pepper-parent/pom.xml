@@ -34,8 +34,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>github-pepper</id>
-			<name>ObeoNetwork Pepper</name>
+			<id>github-pepper-mm</id>
+			<name>ObeoNetwork Pepper-mm</name>
 			<url>https://maven.pkg.github.com/ObeoNetwork/pepper-mm</url>
 		</repository>
 	</distributionManagement>
