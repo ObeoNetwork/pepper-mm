@@ -16,8 +16,6 @@ import java.time.LocalDate;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Workpackage</b></em>'. <!-- end-user-doc -->
  *
@@ -36,13 +34,15 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link pepper.peppermm.Workpackage#getOwnedTasks <em>Owned Tasks</em>}</li>
  * <li>{@link pepper.peppermm.Workpackage#getOwnedObjectives <em>Owned Objectives</em>}</li>
  * <li>{@link pepper.peppermm.Workpackage#getProgress <em>Progress</em>}</li>
+ * <li>{@link pepper.peppermm.Workpackage#getCalculationOption <em>Calculation Option</em>}</li>
+ * <li>{@link pepper.peppermm.Workpackage#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @see pepper.peppermm.PepperPackage#getWorkpackage()
  * @model
  * @generated
  */
-public interface Workpackage extends EObject {
+public interface Workpackage extends DependencyRelatedObject {
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -240,5 +240,53 @@ public interface Workpackage extends EObject {
      * @generated
      */
     void setProgress(int value);
+
+    /**
+     * Returns the value of the '<em><b>Calculation Option</b></em>' attribute. The default value is
+     * <code>"START_END"</code>. The literals are from the enumeration
+     * {@link pepper.peppermm.TaskTimeBoundariesConstraint}. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Calculation Option</em>' attribute.
+     * @see pepper.peppermm.TaskTimeBoundariesConstraint
+     * @see #setCalculationOption(TaskTimeBoundariesConstraint)
+     * @see pepper.peppermm.PepperPackage#getWorkpackage_CalculationOption()
+     * @model default="START_END"
+     * @generated
+     */
+    TaskTimeBoundariesConstraint getCalculationOption();
+
+    /**
+     * Sets the value of the '{@link pepper.peppermm.Workpackage#getCalculationOption <em>Calculation Option</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Calculation Option</em>' attribute.
+     * @see pepper.peppermm.TaskTimeBoundariesConstraint
+     * @see #getCalculationOption()
+     * @generated
+     */
+    void setCalculationOption(TaskTimeBoundariesConstraint value);
+
+    /**
+     * Returns the value of the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Duration</em>' attribute.
+     * @see #setDuration(int)
+     * @see pepper.peppermm.PepperPackage#getWorkpackage_Duration()
+     * @model
+     * @generated
+     */
+    int getDuration();
+
+    /**
+     * Sets the value of the '{@link pepper.peppermm.Workpackage#getDuration <em>Duration</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Duration</em>' attribute.
+     * @see #getDuration()
+     * @generated
+     */
+    void setDuration(int value);
 
 } // Workpackage

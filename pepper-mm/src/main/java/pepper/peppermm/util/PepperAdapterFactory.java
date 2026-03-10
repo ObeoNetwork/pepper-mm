@@ -158,6 +158,16 @@ public class PepperAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
+        public Adapter caseDependencyLink(DependencyLink object) {
+            return createDependencyLinkAdapter();
+        }
+
+        @Override
+        public Adapter caseDependencyRelatedObject(DependencyRelatedObject object) {
+            return createDependencyRelatedObjectAdapter();
+        }
+
+        @Override
         public Adapter defaultCase(EObject object) {
             return createEObjectAdapter();
         }
@@ -394,6 +404,33 @@ public class PepperAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createRiskAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link pepper.peppermm.DependencyLink <em>Dependency Link</em>}'.
+     * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
+     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
+     * @return the new adapter.
+     * @see pepper.peppermm.DependencyLink
+     * @generated
+     */
+    public Adapter createDependencyLinkAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link pepper.peppermm.DependencyRelatedObject <em>Dependency
+     * Related Object</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
+     * 
+     * @return the new adapter.
+     * @see pepper.peppermm.DependencyRelatedObject
+     * @generated
+     */
+    public Adapter createDependencyRelatedObjectAdapter() {
         return null;
     }
 

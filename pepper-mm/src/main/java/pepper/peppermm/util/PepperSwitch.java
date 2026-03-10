@@ -154,6 +154,8 @@ public class PepperSwitch<T> extends Switch<T> {
                 if (result == null)
                     result = caseAbstractTask(task);
                 if (result == null)
+                    result = caseDependencyRelatedObject(task);
+                if (result == null)
                     result = defaultCase(theEObject);
                 return result;
             }
@@ -186,6 +188,8 @@ public class PepperSwitch<T> extends Switch<T> {
                 Workpackage workpackage = (Workpackage) theEObject;
                 T result = caseWorkpackage(workpackage);
                 if (result == null)
+                    result = caseDependencyRelatedObject(workpackage);
+                if (result == null)
                     result = defaultCase(theEObject);
                 return result;
             }
@@ -199,6 +203,20 @@ public class PepperSwitch<T> extends Switch<T> {
             case PepperPackage.RISK: {
                 Risk risk = (Risk) theEObject;
                 T result = caseRisk(risk);
+                if (result == null)
+                    result = defaultCase(theEObject);
+                return result;
+            }
+            case PepperPackage.DEPENDENCY_LINK: {
+                DependencyLink dependencyLink = (DependencyLink) theEObject;
+                T result = caseDependencyLink(dependencyLink);
+                if (result == null)
+                    result = defaultCase(theEObject);
+                return result;
+            }
+            case PepperPackage.DEPENDENCY_RELATED_OBJECT: {
+                DependencyRelatedObject dependencyRelatedObject = (DependencyRelatedObject) theEObject;
+                T result = caseDependencyRelatedObject(dependencyRelatedObject);
                 if (result == null)
                     result = defaultCase(theEObject);
                 return result;
@@ -447,6 +465,36 @@ public class PepperSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseRisk(Risk object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Dependency Link</em>'. <!-- begin-user-doc
+     * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
+     * -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Dependency Link</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDependencyLink(DependencyLink object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Dependency Related Object</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Dependency Related Object</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDependencyRelatedObject(DependencyRelatedObject object) {
         return null;
     }
 

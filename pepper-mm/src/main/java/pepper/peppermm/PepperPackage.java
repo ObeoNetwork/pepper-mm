@@ -419,13 +419,30 @@ public interface PepperPackage extends EPackage {
     int ABSTRACT_TASK__SUB_TASKS = 9;
 
     /**
+     * The feature id for the '<em><b>Calculation Option</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_TASK__CALCULATION_OPTION = 10;
+
+    /**
+     * The feature id for the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_TASK__DURATION = 11;
+
+    /**
      * The number of structural features of the '<em>Abstract Task</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
      * @generated
      * @ordered
      */
-    int ABSTRACT_TASK_FEATURE_COUNT = 10;
+    int ABSTRACT_TASK_FEATURE_COUNT = 12;
 
     /**
      * The meta object id for the '{@link pepper.peppermm.impl.TagFolderImpl <em>Tag Folder</em>}' class. <!--
@@ -601,6 +618,23 @@ public interface PepperPackage extends EPackage {
     int TASK__SUB_TASKS = ABSTRACT_TASK__SUB_TASKS;
 
     /**
+     * The feature id for the '<em><b>Calculation Option</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int TASK__CALCULATION_OPTION = ABSTRACT_TASK__CALCULATION_OPTION;
+
+    /**
+     * The feature id for the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int TASK__DURATION = ABSTRACT_TASK__DURATION;
+
+    /**
      * The feature id for the '<em><b>Dependencies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      * 
@@ -710,6 +744,23 @@ public interface PepperPackage extends EPackage {
      * @ordered
      */
     int OBJECTIVE__SUB_TASKS = ABSTRACT_TASK__SUB_TASKS;
+
+    /**
+     * The feature id for the '<em><b>Calculation Option</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int OBJECTIVE__CALCULATION_OPTION = ABSTRACT_TASK__CALCULATION_OPTION;
+
+    /**
+     * The feature id for the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int OBJECTIVE__DURATION = ABSTRACT_TASK__DURATION;
 
     /**
      * The feature id for the '<em><b>Owned Key Results</b></em>' containment reference list. <!-- begin-user-doc -->
@@ -822,6 +873,23 @@ public interface PepperPackage extends EPackage {
      * @ordered
      */
     int KEY_RESULT__SUB_TASKS = ABSTRACT_TASK__SUB_TASKS;
+
+    /**
+     * The feature id for the '<em><b>Calculation Option</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int KEY_RESULT__CALCULATION_OPTION = ABSTRACT_TASK__CALCULATION_OPTION;
+
+    /**
+     * The feature id for the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int KEY_RESULT__DURATION = ABSTRACT_TASK__DURATION;
 
     /**
      * The number of structural features of the '<em>Key Result</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1119,6 +1187,34 @@ public interface PepperPackage extends EPackage {
     int PROJECT_FEATURE_COUNT = 32;
 
     /**
+     * The meta object id for the '{@link pepper.peppermm.DependencyRelatedObject <em>Dependency Related Object</em>}'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see pepper.peppermm.DependencyRelatedObject
+     * @see pepper.peppermm.impl.PepperPackageImpl#getDependencyRelatedObject()
+     * @generated
+     */
+    int DEPENDENCY_RELATED_OBJECT = 18;
+
+    /**
+     * The feature id for the '<em><b>Dependencies</b></em>' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int DEPENDENCY_RELATED_OBJECT__DEPENDENCIES = 0;
+
+    /**
+     * The number of structural features of the '<em>Dependency Related Object</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT = 1;
+
+    /**
      * The meta object id for the '{@link pepper.peppermm.impl.WorkpackageImpl <em>Workpackage</em>}' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -1129,12 +1225,21 @@ public interface PepperPackage extends EPackage {
     int WORKPACKAGE = 14;
 
     /**
+     * The feature id for the '<em><b>Dependencies</b></em>' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int WORKPACKAGE__DEPENDENCIES = DEPENDENCY_RELATED_OBJECT__DEPENDENCIES;
+
+    /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__NAME = 0;
+    int WORKPACKAGE__NAME = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1142,7 +1247,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__DESCRIPTION = 1;
+    int WORKPACKAGE__DESCRIPTION = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Start Date</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1150,7 +1255,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__START_DATE = 2;
+    int WORKPACKAGE__START_DATE = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>End Date</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1158,7 +1263,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__END_DATE = 3;
+    int WORKPACKAGE__END_DATE = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Leader</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1166,7 +1271,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__LEADER = 4;
+    int WORKPACKAGE__LEADER = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Participants</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1175,7 +1280,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__PARTICIPANTS = 5;
+    int WORKPACKAGE__PARTICIPANTS = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Effort</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1183,7 +1288,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__EFFORT = 6;
+    int WORKPACKAGE__EFFORT = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Outputs</b></em>' containment reference list. <!-- begin-user-doc --> <!--
@@ -1192,7 +1297,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__OUTPUTS = 7;
+    int WORKPACKAGE__OUTPUTS = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Owned Tasks</b></em>' containment reference list. <!-- begin-user-doc --> <!--
@@ -1201,7 +1306,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__OWNED_TASKS = 8;
+    int WORKPACKAGE__OWNED_TASKS = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Owned Objectives</b></em>' containment reference list. <!-- begin-user-doc -->
@@ -1210,7 +1315,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__OWNED_OBJECTIVES = 9;
+    int WORKPACKAGE__OWNED_OBJECTIVES = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Progress</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1218,7 +1323,24 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE__PROGRESS = 10;
+    int WORKPACKAGE__PROGRESS = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 10;
+
+    /**
+     * The feature id for the '<em><b>Calculation Option</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int WORKPACKAGE__CALCULATION_OPTION = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 11;
+
+    /**
+     * The feature id for the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int WORKPACKAGE__DURATION = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 12;
 
     /**
      * The number of structural features of the '<em>Workpackage</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1227,7 +1349,7 @@ public interface PepperPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WORKPACKAGE_FEATURE_COUNT = 11;
+    int WORKPACKAGE_FEATURE_COUNT = DEPENDENCY_RELATED_OBJECT_FEATURE_COUNT + 13;
 
     /**
      * The meta object id for the '{@link pepper.peppermm.impl.WorkpackageArtefactImpl <em>Workpackage Artefact</em>}'
@@ -1415,6 +1537,57 @@ public interface PepperPackage extends EPackage {
     int RISK_FEATURE_COUNT = 8;
 
     /**
+     * The meta object id for the '{@link pepper.peppermm.impl.DependencyLinkImpl <em>Dependency Link</em>}' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see pepper.peppermm.impl.DependencyLinkImpl
+     * @see pepper.peppermm.impl.PepperPackageImpl#getDependencyLink()
+     * @generated
+     */
+    int DEPENDENCY_LINK = 17;
+
+    /**
+     * The feature id for the '<em><b>Target Kind</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int DEPENDENCY_LINK__TARGET_KIND = 0;
+
+    /**
+     * The feature id for the '<em><b>Source Kind</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int DEPENDENCY_LINK__SOURCE_KIND = 1;
+
+    /**
+     * The feature id for the '<em><b>Source</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int DEPENDENCY_LINK__SOURCE = 2;
+
+    /**
+     * The feature id for the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int DEPENDENCY_LINK__DURATION = 3;
+
+    /**
+     * The number of structural features of the '<em>Dependency Link</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int DEPENDENCY_LINK_FEATURE_COUNT = 4;
+
+    /**
      * The meta object id for the '{@link pepper.peppermm.WorkpackageArtefactNature <em>Workpackage Artefact
      * Nature</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -1422,7 +1595,27 @@ public interface PepperPackage extends EPackage {
      * @see pepper.peppermm.impl.PepperPackageImpl#getWorkpackageArtefactNature()
      * @generated
      */
-    int WORKPACKAGE_ARTEFACT_NATURE = 17;
+    int WORKPACKAGE_ARTEFACT_NATURE = 22;
+
+    /**
+     * The meta object id for the '{@link pepper.peppermm.StartOrEnd <em>Start Or End</em>}' enum. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @see pepper.peppermm.StartOrEnd
+     * @see pepper.peppermm.impl.PepperPackageImpl#getStartOrEnd()
+     * @generated
+     */
+    int START_OR_END = 23;
+
+    /**
+     * The meta object id for the '{@link pepper.peppermm.TaskTimeBoundariesConstraint <em>Task Time Boundaries
+     * Constraint</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see pepper.peppermm.TaskTimeBoundariesConstraint
+     * @see pepper.peppermm.impl.PepperPackageImpl#getTaskTimeBoundariesConstraint()
+     * @generated
+     */
+    int TASK_TIME_BOUNDARIES_CONSTRAINT = 24;
 
     /**
      * The meta object id for the '{@link pepper.peppermm.RiskKind <em>Risk Kind</em>}' enum. <!-- begin-user-doc -->
@@ -1432,7 +1625,7 @@ public interface PepperPackage extends EPackage {
      * @see pepper.peppermm.impl.PepperPackageImpl#getRiskKind()
      * @generated
      */
-    int RISK_KIND = 18;
+    int RISK_KIND = 20;
 
     /**
      * The meta object id for the '{@link pepper.peppermm.RiskState <em>Risk State</em>}' enum. <!-- begin-user-doc -->
@@ -1442,7 +1635,7 @@ public interface PepperPackage extends EPackage {
      * @see pepper.peppermm.impl.PepperPackageImpl#getRiskState()
      * @generated
      */
-    int RISK_STATE = 19;
+    int RISK_STATE = 21;
 
     /**
      * The meta object id for the '{@link pepper.peppermm.ProjectState <em>Project State</em>}' enum. <!--
@@ -1452,7 +1645,7 @@ public interface PepperPackage extends EPackage {
      * @see pepper.peppermm.impl.PepperPackageImpl#getProjectState()
      * @generated
      */
-    int PROJECT_STATE = 20;
+    int PROJECT_STATE = 19;
 
     /**
      * The meta object id for the '<em>Instant</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1461,7 +1654,7 @@ public interface PepperPackage extends EPackage {
      * @see pepper.peppermm.impl.PepperPackageImpl#getInstant()
      * @generated
      */
-    int INSTANT = 21;
+    int INSTANT = 26;
 
     /**
      * The meta object id for the '<em>Date</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1470,7 +1663,7 @@ public interface PepperPackage extends EPackage {
      * @see pepper.peppermm.impl.PepperPackageImpl#getDate()
      * @generated
      */
-    int DATE = 22;
+    int DATE = 25;
 
     /**
      * Returns the meta object for class '{@link pepper.peppermm.Organization <em>Organization</em>}'. <!--
@@ -1797,6 +1990,28 @@ public interface PepperPackage extends EPackage {
     EReference getAbstractTask_SubTasks();
 
     /**
+     * Returns the meta object for the attribute '{@link pepper.peppermm.AbstractTask#getCalculationOption
+     * <em>Calculation Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Calculation Option</em>'.
+     * @see pepper.peppermm.AbstractTask#getCalculationOption()
+     * @see #getAbstractTask()
+     * @generated
+     */
+    EAttribute getAbstractTask_CalculationOption();
+
+    /**
+     * Returns the meta object for the attribute '{@link pepper.peppermm.AbstractTask#getDuration <em>Duration</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Duration</em>'.
+     * @see pepper.peppermm.AbstractTask#getDuration()
+     * @see #getAbstractTask()
+     * @generated
+     */
+    EAttribute getAbstractTask_Duration();
+
+    /**
      * Returns the meta object for class '{@link pepper.peppermm.TagFolder <em>Tag Folder</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      * 
@@ -1880,17 +2095,6 @@ public interface PepperPackage extends EPackage {
      * @generated
      */
     EClass getTask();
-
-    /**
-     * Returns the meta object for the reference list '{@link pepper.peppermm.Task#getDependencies
-     * <em>Dependencies</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @return the meta object for the reference list '<em>Dependencies</em>'.
-     * @see pepper.peppermm.Task#getDependencies()
-     * @see #getTask()
-     * @generated
-     */
-    EReference getTask_Dependencies();
 
     /**
      * Returns the meta object for class '{@link pepper.peppermm.Objective <em>Objective</em>}'. <!-- begin-user-doc -->
@@ -2417,6 +2621,28 @@ public interface PepperPackage extends EPackage {
     EAttribute getWorkpackage_Progress();
 
     /**
+     * Returns the meta object for the attribute '{@link pepper.peppermm.Workpackage#getCalculationOption
+     * <em>Calculation Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Calculation Option</em>'.
+     * @see pepper.peppermm.Workpackage#getCalculationOption()
+     * @see #getWorkpackage()
+     * @generated
+     */
+    EAttribute getWorkpackage_CalculationOption();
+
+    /**
+     * Returns the meta object for the attribute '{@link pepper.peppermm.Workpackage#getDuration <em>Duration</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Duration</em>'.
+     * @see pepper.peppermm.Workpackage#getDuration()
+     * @see #getWorkpackage()
+     * @generated
+     */
+    EAttribute getWorkpackage_Duration();
+
+    /**
      * Returns the meta object for class '{@link pepper.peppermm.WorkpackageArtefact <em>Workpackage Artefact</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -2635,6 +2861,82 @@ public interface PepperPackage extends EPackage {
     EReference getRisk_Workpackages();
 
     /**
+     * Returns the meta object for class '{@link pepper.peppermm.DependencyLink <em>Dependency Link</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for class '<em>Dependency Link</em>'.
+     * @see pepper.peppermm.DependencyLink
+     * @generated
+     */
+    EClass getDependencyLink();
+
+    /**
+     * Returns the meta object for the attribute '{@link pepper.peppermm.DependencyLink#getTargetKind <em>Target
+     * Kind</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Target Kind</em>'.
+     * @see pepper.peppermm.DependencyLink#getTargetKind()
+     * @see #getDependencyLink()
+     * @generated
+     */
+    EAttribute getDependencyLink_TargetKind();
+
+    /**
+     * Returns the meta object for the attribute '{@link pepper.peppermm.DependencyLink#getSourceKind <em>Source
+     * Kind</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Source Kind</em>'.
+     * @see pepper.peppermm.DependencyLink#getSourceKind()
+     * @see #getDependencyLink()
+     * @generated
+     */
+    EAttribute getDependencyLink_SourceKind();
+
+    /**
+     * Returns the meta object for the reference '{@link pepper.peppermm.DependencyLink#getSource <em>Source</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the reference '<em>Source</em>'.
+     * @see pepper.peppermm.DependencyLink#getSource()
+     * @see #getDependencyLink()
+     * @generated
+     */
+    EReference getDependencyLink_Source();
+
+    /**
+     * Returns the meta object for the attribute '{@link pepper.peppermm.DependencyLink#getDuration <em>Duration</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Duration</em>'.
+     * @see pepper.peppermm.DependencyLink#getDuration()
+     * @see #getDependencyLink()
+     * @generated
+     */
+    EAttribute getDependencyLink_Duration();
+
+    /**
+     * Returns the meta object for class '{@link pepper.peppermm.DependencyRelatedObject <em>Dependency Related
+     * Object</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for class '<em>Dependency Related Object</em>'.
+     * @see pepper.peppermm.DependencyRelatedObject
+     * @generated
+     */
+    EClass getDependencyRelatedObject();
+
+    /**
+     * Returns the meta object for the containment reference list
+     * '{@link pepper.peppermm.DependencyRelatedObject#getDependencies <em>Dependencies</em>}'. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return the meta object for the containment reference list '<em>Dependencies</em>'.
+     * @see pepper.peppermm.DependencyRelatedObject#getDependencies()
+     * @see #getDependencyRelatedObject()
+     * @generated
+     */
+    EReference getDependencyRelatedObject_Dependencies();
+
+    /**
      * Returns the meta object for enum '{@link pepper.peppermm.WorkpackageArtefactNature <em>Workpackage Artefact
      * Nature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -2643,6 +2945,26 @@ public interface PepperPackage extends EPackage {
      * @generated
      */
     EEnum getWorkpackageArtefactNature();
+
+    /**
+     * Returns the meta object for enum '{@link pepper.peppermm.StartOrEnd <em>Start Or End</em>}'. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for enum '<em>Start Or End</em>'.
+     * @see pepper.peppermm.StartOrEnd
+     * @generated
+     */
+    EEnum getStartOrEnd();
+
+    /**
+     * Returns the meta object for enum '{@link pepper.peppermm.TaskTimeBoundariesConstraint <em>Task Time Boundaries
+     * Constraint</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for enum '<em>Task Time Boundaries Constraint</em>'.
+     * @see pepper.peppermm.TaskTimeBoundariesConstraint
+     * @generated
+     */
+    EEnum getTaskTimeBoundariesConstraint();
 
     /**
      * Returns the meta object for enum '{@link pepper.peppermm.RiskKind <em>Risk Kind</em>}'. <!-- begin-user-doc -->
@@ -2974,6 +3296,22 @@ public interface PepperPackage extends EPackage {
         EReference ABSTRACT_TASK__SUB_TASKS = eINSTANCE.getAbstractTask_SubTasks();
 
         /**
+         * The meta object literal for the '<em><b>Calculation Option</b></em>' attribute feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute ABSTRACT_TASK__CALCULATION_OPTION = eINSTANCE.getAbstractTask_CalculationOption();
+
+        /**
+         * The meta object literal for the '<em><b>Duration</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute ABSTRACT_TASK__DURATION = eINSTANCE.getAbstractTask_Duration();
+
+        /**
          * The meta object literal for the '{@link pepper.peppermm.impl.TagFolderImpl <em>Tag Folder</em>}' class. <!--
          * begin-user-doc --> <!-- end-user-doc -->
          * 
@@ -3042,14 +3380,6 @@ public interface PepperPackage extends EPackage {
          * @generated
          */
         EClass TASK = eINSTANCE.getTask();
-
-        /**
-         * The meta object literal for the '<em><b>Dependencies</b></em>' reference list feature. <!-- begin-user-doc
-         * --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        EReference TASK__DEPENDENCIES = eINSTANCE.getTask_Dependencies();
 
         /**
          * The meta object literal for the '{@link pepper.peppermm.impl.ObjectiveImpl <em>Objective</em>}' class. <!--
@@ -3444,6 +3774,22 @@ public interface PepperPackage extends EPackage {
         EAttribute WORKPACKAGE__PROGRESS = eINSTANCE.getWorkpackage_Progress();
 
         /**
+         * The meta object literal for the '<em><b>Calculation Option</b></em>' attribute feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute WORKPACKAGE__CALCULATION_OPTION = eINSTANCE.getWorkpackage_CalculationOption();
+
+        /**
+         * The meta object literal for the '<em><b>Duration</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute WORKPACKAGE__DURATION = eINSTANCE.getWorkpackage_Duration();
+
+        /**
          * The meta object literal for the '{@link pepper.peppermm.impl.WorkpackageArtefactImpl <em>Workpackage
          * Artefact</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
@@ -3608,6 +3954,66 @@ public interface PepperPackage extends EPackage {
         EReference RISK__WORKPACKAGES = eINSTANCE.getRisk_Workpackages();
 
         /**
+         * The meta object literal for the '{@link pepper.peppermm.impl.DependencyLinkImpl <em>Dependency Link</em>}'
+         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @see pepper.peppermm.impl.DependencyLinkImpl
+         * @see pepper.peppermm.impl.PepperPackageImpl#getDependencyLink()
+         * @generated
+         */
+        EClass DEPENDENCY_LINK = eINSTANCE.getDependencyLink();
+
+        /**
+         * The meta object literal for the '<em><b>Target Kind</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute DEPENDENCY_LINK__TARGET_KIND = eINSTANCE.getDependencyLink_TargetKind();
+
+        /**
+         * The meta object literal for the '<em><b>Source Kind</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute DEPENDENCY_LINK__SOURCE_KIND = eINSTANCE.getDependencyLink_SourceKind();
+
+        /**
+         * The meta object literal for the '<em><b>Source</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         * 
+         * @generated
+         */
+        EReference DEPENDENCY_LINK__SOURCE = eINSTANCE.getDependencyLink_Source();
+
+        /**
+         * The meta object literal for the '<em><b>Duration</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute DEPENDENCY_LINK__DURATION = eINSTANCE.getDependencyLink_Duration();
+
+        /**
+         * The meta object literal for the '{@link pepper.peppermm.DependencyRelatedObject <em>Dependency Related
+         * Object</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @see pepper.peppermm.DependencyRelatedObject
+         * @see pepper.peppermm.impl.PepperPackageImpl#getDependencyRelatedObject()
+         * @generated
+         */
+        EClass DEPENDENCY_RELATED_OBJECT = eINSTANCE.getDependencyRelatedObject();
+
+        /**
+         * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference list feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        EReference DEPENDENCY_RELATED_OBJECT__DEPENDENCIES = eINSTANCE.getDependencyRelatedObject_Dependencies();
+
+        /**
          * The meta object literal for the '{@link pepper.peppermm.WorkpackageArtefactNature <em>Workpackage Artefact
          * Nature</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
@@ -3616,6 +4022,26 @@ public interface PepperPackage extends EPackage {
          * @generated
          */
         EEnum WORKPACKAGE_ARTEFACT_NATURE = eINSTANCE.getWorkpackageArtefactNature();
+
+        /**
+         * The meta object literal for the '{@link pepper.peppermm.StartOrEnd <em>Start Or End</em>}' enum. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @see pepper.peppermm.StartOrEnd
+         * @see pepper.peppermm.impl.PepperPackageImpl#getStartOrEnd()
+         * @generated
+         */
+        EEnum START_OR_END = eINSTANCE.getStartOrEnd();
+
+        /**
+         * The meta object literal for the '{@link pepper.peppermm.TaskTimeBoundariesConstraint <em>Task Time Boundaries
+         * Constraint</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @see pepper.peppermm.TaskTimeBoundariesConstraint
+         * @see pepper.peppermm.impl.PepperPackageImpl#getTaskTimeBoundariesConstraint()
+         * @generated
+         */
+        EEnum TASK_TIME_BOUNDARIES_CONSTRAINT = eINSTANCE.getTaskTimeBoundariesConstraint();
 
         /**
          * The meta object literal for the '{@link pepper.peppermm.RiskKind <em>Risk Kind</em>}' enum. <!--

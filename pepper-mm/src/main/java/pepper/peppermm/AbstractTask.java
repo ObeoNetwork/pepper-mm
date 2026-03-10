@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link pepper.peppermm.AbstractTask#getAssignedPersons <em>Assigned Persons</em>}</li>
  * <li>{@link pepper.peppermm.AbstractTask#getAssignedTeams <em>Assigned Teams</em>}</li>
  * <li>{@link pepper.peppermm.AbstractTask#getSubTasks <em>Sub Tasks</em>}</li>
+ * <li>{@link pepper.peppermm.AbstractTask#getCalculationOption <em>Calculation Option</em>}</li>
+ * <li>{@link pepper.peppermm.AbstractTask#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @see pepper.peppermm.PepperPackage#getAbstractTask()
@@ -218,5 +220,53 @@ public interface AbstractTask extends EObject {
      * @generated
      */
     EList<Task> getSubTasks();
+
+    /**
+     * Returns the value of the '<em><b>Calculation Option</b></em>' attribute. The default value is
+     * <code>"START_END"</code>. The literals are from the enumeration
+     * {@link pepper.peppermm.TaskTimeBoundariesConstraint}. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Calculation Option</em>' attribute.
+     * @see pepper.peppermm.TaskTimeBoundariesConstraint
+     * @see #setCalculationOption(TaskTimeBoundariesConstraint)
+     * @see pepper.peppermm.PepperPackage#getAbstractTask_CalculationOption()
+     * @model default="START_END"
+     * @generated
+     */
+    TaskTimeBoundariesConstraint getCalculationOption();
+
+    /**
+     * Sets the value of the '{@link pepper.peppermm.AbstractTask#getCalculationOption <em>Calculation Option</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Calculation Option</em>' attribute.
+     * @see pepper.peppermm.TaskTimeBoundariesConstraint
+     * @see #getCalculationOption()
+     * @generated
+     */
+    void setCalculationOption(TaskTimeBoundariesConstraint value);
+
+    /**
+     * Returns the value of the '<em><b>Duration</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Duration</em>' attribute.
+     * @see #setDuration(int)
+     * @see pepper.peppermm.PepperPackage#getAbstractTask_Duration()
+     * @model
+     * @generated
+     */
+    int getDuration();
+
+    /**
+     * Sets the value of the '{@link pepper.peppermm.AbstractTask#getDuration <em>Duration</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Duration</em>' attribute.
+     * @see #getDuration()
+     * @generated
+     */
+    void setDuration(int value);
 
 } // AbstractTask
