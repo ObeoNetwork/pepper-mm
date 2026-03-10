@@ -150,6 +150,14 @@ public interface PepperFactory extends EFactory {
     Risk createRisk();
 
     /**
+     * Returns a new object of class '<em>Dependency Link</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return a new object of class '<em>Dependency Link</em>'.
+     * @generated
+     */
+    DependencyLink createDependencyLink();
+
+    /**
      * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the package supported by this factory.

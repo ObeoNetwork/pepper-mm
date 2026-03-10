@@ -535,8 +535,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
         workpackage.setName(getString("_UI_New") + " " + getString("_UI_Workpackage_type"));
         if (object instanceof Project project) {
 
-            Optional<Workpackage> optionalWorkpackage = project.getOwnedWorkpackages().stream()
-                    .reduce((first, second) -> second)
+            Optional<Workpackage> optionalWorkpackage = project.getOwnedWorkpackages().stream().reduce((first, second) -> second)
                     .filter(filteredWorkpackage -> filteredWorkpackage.getEndDate() != null && filteredWorkpackage.getStartDate() != null);
             if (optionalWorkpackage.isPresent()) {
                 Workpackage lastWorkpackage = optionalWorkpackage.get();
@@ -547,15 +546,13 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
                 LocalDate endDate = null;
                 if (project.getEffectiveEndDate() != null) {
                     endDate = project.getEffectiveEndDate();
-                }
-                else if (project.getContractualEndDate() != null) {
+                } else if (project.getContractualEndDate() != null) {
                     endDate = project.getContractualEndDate();
                 }
                 LocalDate startDate = null;
                 if (project.getEffectiveStartDate() != null) {
                     startDate = project.getEffectiveStartDate();
-                }
-                else if (project.getContractualStartDate() != null) {
+                } else if (project.getContractualStartDate() != null) {
                     startDate = project.getContractualStartDate();
                 }
                 if (startDate != null && endDate != null) {
