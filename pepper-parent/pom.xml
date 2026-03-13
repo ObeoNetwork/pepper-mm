@@ -23,7 +23,7 @@
 	</parent>
 	<groupId>pepper-mm</groupId>
 	<artifactId>pepper-mm-parent</artifactId>
-	<version>2026.1.0</version>
+	<version>2026.3.0</version>
 	<name>pepper-mm-parent</name>
 	<description>Parent Pom for Pepper meta model modules</description>
 	<packaging>pom</packaging>

@@ -18,7 +18,7 @@
 
 	<groupId>pepper-mm</groupId>
 	<artifactId>pepper-mm-container</artifactId>
-	<version>2026.1.0</version>
+	<version>2026.3.0</version>
 
 	<name>Pepper-mm</name>
 	<description>Pepper Meta-model for project management</description>
@@ -36,6 +36,7 @@
 	 Update version: mvn versions:set -DnewVersion=xxx.y.z
 	  -->
 	<modules>
+		<module>pepper-parent</module>
 		<module>pepper-mm</module>
 		<module>pepper-edit</module>
 	</modules>
