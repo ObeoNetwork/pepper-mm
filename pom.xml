@@ -18,7 +18,7 @@
 
 	<groupId>pepper-mm</groupId>
 	<artifactId>pepper-mm-container</artifactId>
-	<version>2026.3.0</version>
+	<version>2026.4.0</version>
 
 	<name>Pepper-mm</name>
 	<description>Pepper Meta-model for project management</description>
