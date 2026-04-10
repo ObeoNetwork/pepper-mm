@@ -13,6 +13,7 @@
 package pepper.peppermm.provider;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -305,8 +306,14 @@ public class AbstractTaskItemProvider extends ItemProviderAdapter
 
             if (optionalTask.isPresent()) {
                 Task lastTask = optionalTask.get();
-                task.setStartTime(lastTask.getEndTime());
-                task.setEndTime(Instant.ofEpochSecond(2 * lastTask.getEndTime().getEpochSecond() - lastTask.getStartTime().getEpochSecond()));
+                if (lastTask.getEndTime().equals(lastTask.getStartTime())) {
+                    // If the last task is a Milestone
+                    task.setStartTime(lastTask.getEndTime());
+                    task.setEndTime(lastTask.getEndTime());
+                } else {
+                    task.setStartTime(lastTask.getEndTime().plus(1, ChronoUnit.MINUTES));
+                    task.setEndTime(Instant.ofEpochSecond(2 * lastTask.getEndTime().getEpochSecond() - lastTask.getStartTime().getEpochSecond()).plus(1, ChronoUnit.MINUTES));
+                }
             } else {
                 if (abstractTask.getEndTime() != null && abstractTask.getStartTime() != null) {
                     task.setStartTime(abstractTask.getStartTime());
