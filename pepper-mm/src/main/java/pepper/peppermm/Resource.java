@@ -12,6 +12,8 @@
  */
 package pepper.peppermm;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  * <li>{@link pepper.peppermm.Resource#getName <em>Name</em>}</li>
+ * <li>{@link pepper.peppermm.Resource#getUnavailabilityPeriods <em>Unavailability Periods</em>}</li>
  * </ul>
  *
  * @see pepper.peppermm.PepperPackage#getResource()
@@ -50,5 +53,16 @@ public interface Resource extends EObject {
      * @generated
      */
     void setName(String value);
+
+    /**
+     * Returns the value of the '<em><b>Unavailability Periods</b></em>' containment reference list. The list contents
+     * are of type {@link pepper.peppermm.UnavailabilityPeriod}. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Unavailability Periods</em>' containment reference list.
+     * @see pepper.peppermm.PepperPackage#getResource_UnavailabilityPeriods()
+     * @model containment="true"
+     * @generated
+     */
+    EList<UnavailabilityPeriod> getUnavailabilityPeriods();
 
 } // Resource

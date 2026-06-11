@@ -84,6 +84,13 @@ public class PepperSwitch<T> extends Switch<T> {
                     result = defaultCase(theEObject);
                 return result;
             }
+            case PepperPackage.UNAVAILABILITY_PERIOD: {
+                UnavailabilityPeriod unavailabilityPeriod = (UnavailabilityPeriod) theEObject;
+                T result = caseUnavailabilityPeriod(unavailabilityPeriod);
+                if (result == null)
+                    result = defaultCase(theEObject);
+                return result;
+            }
             case PepperPackage.RESOURCE_FOLDER: {
                 ResourceFolder resourceFolder = (ResourceFolder) theEObject;
                 T result = caseResourceFolder(resourceFolder);
@@ -251,6 +258,21 @@ public class PepperSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseResource(Resource object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Unavailability Period</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Unavailability Period</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseUnavailabilityPeriod(UnavailabilityPeriod object) {
         return null;
     }
 

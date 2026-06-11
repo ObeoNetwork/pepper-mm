@@ -83,6 +83,11 @@ public class PepperAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
+        public Adapter caseUnavailabilityPeriod(UnavailabilityPeriod object) {
+            return createUnavailabilityPeriodAdapter();
+        }
+
+        @Override
         public Adapter caseResourceFolder(ResourceFolder object) {
             return createResourceFolderAdapter();
         }
@@ -209,6 +214,19 @@ public class PepperAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createResourceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link pepper.peppermm.UnavailabilityPeriod <em>Unavailability
+     * Period</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see pepper.peppermm.UnavailabilityPeriod
+     * @generated
+     */
+    public Adapter createUnavailabilityPeriodAdapter() {
         return null;
     }
 

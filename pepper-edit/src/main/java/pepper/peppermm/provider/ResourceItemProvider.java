@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import pepper.peppermm.PepperFactory;
 import pepper.peppermm.PepperPackage;
 import pepper.peppermm.Resource;
 
@@ -112,6 +113,9 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
             case PepperPackage.RESOURCE__NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
+            case PepperPackage.RESOURCE__UNAVAILABILITY_PERIODS:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                return;
             default:
                 super.notifyChanged(notification);
                 return;
@@ -127,6 +131,8 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add(createChildParameter(PepperPackage.Literals.RESOURCE__UNAVAILABILITY_PERIODS, PepperFactory.eINSTANCE.createUnavailabilityPeriod()));
     }
 
     /**
