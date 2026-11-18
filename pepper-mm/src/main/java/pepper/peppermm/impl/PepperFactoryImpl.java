@@ -71,6 +71,8 @@ public class PepperFactoryImpl extends EFactoryImpl implements PepperFactory {
                 return createOrganization();
             case PepperPackage.RESOURCE_FOLDER:
                 return createResourceFolder();
+            case PepperPackage.UNAVAILABILITY_PERIOD:
+                return createUnavailabilityPeriod();
             case PepperPackage.TEAM:
                 return createTeam();
             case PepperPackage.INTERNAL_STAKEHOLDER:
@@ -182,6 +184,17 @@ public class PepperFactoryImpl extends EFactoryImpl implements PepperFactory {
     public ResourceFolder createResourceFolder() {
         ResourceFolderImpl resourceFolder = new ResourceFolderImpl();
         return resourceFolder;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public UnavailabilityPeriod createUnavailabilityPeriod() {
+        UnavailabilityPeriodImpl unavailabilityPeriod = new UnavailabilityPeriodImpl();
+        return unavailabilityPeriod;
     }
 
     /**

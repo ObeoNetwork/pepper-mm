@@ -110,6 +110,29 @@ public class PepperItemProviderAdapterFactory extends PepperAdapterFactory imple
     protected ResourceFolderItemProvider resourceFolderItemProvider;
 
     /**
+     * This keeps track of the one adapter used for all {@link pepper.peppermm.UnavailabilityPeriod} instances. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected UnavailabilityPeriodItemProvider unavailabilityPeriodItemProvider;
+
+    /**
+     * This creates an adapter for a {@link pepper.peppermm.UnavailabilityPeriod}. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createUnavailabilityPeriodAdapter() {
+        if (unavailabilityPeriodItemProvider == null) {
+            unavailabilityPeriodItemProvider = new UnavailabilityPeriodItemProvider(this);
+        }
+
+        return unavailabilityPeriodItemProvider;
+    }
+
+    /**
      * This creates an adapter for a {@link pepper.peppermm.ResourceFolder}. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      * 
@@ -540,6 +563,8 @@ public class PepperItemProviderAdapterFactory extends PepperAdapterFactory imple
             organizationItemProvider.dispose();
         if (resourceFolderItemProvider != null)
             resourceFolderItemProvider.dispose();
+        if (unavailabilityPeriodItemProvider != null)
+            unavailabilityPeriodItemProvider.dispose();
         if (teamItemProvider != null)
             teamItemProvider.dispose();
         if (internalStakeholderItemProvider != null)

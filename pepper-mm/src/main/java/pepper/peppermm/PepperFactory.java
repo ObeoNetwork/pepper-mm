@@ -46,6 +46,14 @@ public interface PepperFactory extends EFactory {
     ResourceFolder createResourceFolder();
 
     /**
+     * Returns a new object of class '<em>Unavailability Period</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Unavailability Period</em>'.
+     * @generated
+     */
+    UnavailabilityPeriod createUnavailabilityPeriod();
+
+    /**
      * Returns a new object of class '<em>Team</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return a new object of class '<em>Team</em>'.
